@@ -30,17 +30,17 @@ public class MyBinaryTree<K extends Comparable<K>> {
 		return current == null ? 0 : 1 + this.getSizeRecursive(current.left) + this.getSizeRecursive(current.right);
 	}
 
-	public MyBinaryNode<K> search(K key) {
+	public MyBinaryNode search(K key) {
 		return this.searchRecursive(key, root);
 	}
-
-	private MyBinaryNode<K> searchRecursive(K key, MyBinaryNode<K> current) {
-		if (current.key.compareTo(key) == 0) {
+	
+	private MyBinaryNode searchRecursive(K k, MyBinaryNode<K> current) {
+		if (current.key.compareTo(k) == 0) {
 			return current;
-		} else if (key.compareTo(current.key) < 0) {
-			searchRecursive(key, current.left);
-		} else {
-			searchRecursive(key, current.right);
+		} else if (k.compareTo(current.key) < 0) {
+			return searchRecursive(k, current.left);
+		} else if(k.compareTo(current.key)>0) {
+			return searchRecursive(k, current.right);
 		}
 		return null;
 	}

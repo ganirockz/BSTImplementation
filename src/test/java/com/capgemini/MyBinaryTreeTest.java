@@ -1,10 +1,10 @@
 package com.capgemini;
 
 import org.junit.*;
-
+import java.io.*;
 public class MyBinaryTreeTest {
 	@Test
-	public void giveThreeNumbersWhenAddedShouldReturnSizeThree() {
+	public void giveThreeNumbersWhenSearchShouldReturnRequiredNode() {
 		MyBinaryTree<Integer> binaryTree = new MyBinaryTree<Integer>();
 		binaryTree.add(56);
 		binaryTree.add(30);
@@ -19,7 +19,8 @@ public class MyBinaryTreeTest {
 		binaryTree.add(65);
 		binaryTree.add(63);
 		binaryTree.add(67);
-		Assert.assertEquals(13, binaryTree.getSize());
+		MyBinaryNode<Integer> myNode = binaryTree.search(63);
+		Assert.assertEquals((Integer)63, myNode.key);
 	}
 
 }
